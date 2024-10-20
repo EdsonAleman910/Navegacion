@@ -67,5 +67,8 @@ fun ContentDetailView(navController: NavController, id: Int, opcional: String?) 
         MainButton(name = "Return home", backColor = Color.Blue, color = Color.White) {
             navController.popBackStack()
         }
+        MainButton(name = "Go to 3rd view", backColor = Color.Blue, color = Color.White) {
+            navController.navigate("3rd/${id}/?${opcional}")
+        }
     }
 }
