@@ -10,7 +10,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -28,13 +27,13 @@ import com.example.navegacion.components.TitleView
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun DetailView(navController: NavController, id: Int, opcional: String?) {
+fun ThirdView(navController: NavController, id: Int, opcional: String?) {
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { TitleBar(name = "Detail view") },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
-                    containerColor = Color.Blue
+                    containerColor = Color.Yellow,
                 ),
                 navigationIcon = {
                     MainIconButton(icon = Icons.Default.ArrowBack) {
@@ -44,18 +43,18 @@ fun DetailView(navController: NavController, id: Int, opcional: String?) {
             )
         }
     ) {
-        ContentDetailView(navController, id, opcional)
+        ContentThirdView(navController, id, opcional)
     }
 }
 
 @Composable
-fun ContentDetailView(navController: NavController, id: Int, opcional: String?) {
+fun ContentThirdView(navController: NavController, id: Int, opcional: String?) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        TitleView(name = "Detail View")
+        TitleView(name = "3rd View")
         Space()
         TitleView(name = id.toString())
         Space()
@@ -64,11 +63,11 @@ fun ContentDetailView(navController: NavController, id: Int, opcional: String?) 
         }else{
             TitleView(name = opcional.orEmpty())
         }
-        MainButton(name = "Return home", backColor = Color.Blue, color = Color.White) {
+        MainButton(name = "Return Detail View", backColor = Color.Yellow, color = Color.Black) {
             navController.popBackStack()
         }
-        MainButton(name = "Go to 3rd view", backColor = Color.Blue, color = Color.White) {
-            navController.navigate("3rd/${id}/?${opcional}")
+        MainButton(name = "Return to Home", backColor = Color.Yellow, color = Color.Black) {
+            navController.navigate("Home")
         }
     }
 }
