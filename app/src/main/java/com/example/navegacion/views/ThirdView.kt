@@ -33,7 +33,7 @@ fun ThirdView(navController: NavController, id: Int, opcional: String?) {
             TopAppBar(
                 title = { TitleBar(name = "Detail view") },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
-                    containerColor = Color.Blue
+                    containerColor = Color.Yellow,
                 ),
                 navigationIcon = {
                     MainIconButton(icon = Icons.Default.ArrowBack) {
@@ -54,7 +54,7 @@ fun ContentThirdView(navController: NavController, id: Int, opcional: String?) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        TitleView(name = "Detail View")
+        TitleView(name = "3rd View")
         Space()
         TitleView(name = id.toString())
         Space()
@@ -63,11 +63,11 @@ fun ContentThirdView(navController: NavController, id: Int, opcional: String?) {
         }else{
             TitleView(name = opcional.orEmpty())
         }
-        MainButton(name = "Return home", backColor = Color.Blue, color = Color.White) {
+        MainButton(name = "Return Detail View", backColor = Color.Yellow, color = Color.Black) {
             navController.popBackStack()
         }
-        MainButton(name = "Go to 3rd view", backColor = Color.Blue, color = Color.White) {
-            navController.navigate("3rd/${id}/?${opcional}")
+        MainButton(name = "Return to Home", backColor = Color.Yellow, color = Color.Black) {
+            navController.navigate("Home")
         }
     }
 }
